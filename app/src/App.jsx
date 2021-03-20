@@ -1,19 +1,16 @@
-import { useEffect } from "react";
-import fb from "./service/firebase";
+import Login from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
+import Chat from "./components/Chat/Chat";
+import { Switch, Route } from "react-router";
 
 const App = () => {
-  useEffect(() => {
-    fb.firestore
-      .collection("chatUsers")
-      .where("userName", "==", "dharunvs")
-      .get()
-      .then((res) => {
-        const user = res.docs[0]?.data();
-        console.log(user);
-      });
-  }, []);
-
-  return <>Hello from Dharun</>;
+  return (
+    <Switch>
+      <Route exact path="/" component={Chat} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+    </Switch>
+  );
 };
 
 export default App;
