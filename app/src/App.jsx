@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import fb from "../../service/firebase";
+import fb from "./service/firebase";
 
 const App = () => {
   useEffect(() => {
