@@ -1,6 +1,5 @@
 import { Formik } from "formik";
-import validationSchema from "./formikConfig";
-import defaultValues from "./formikConfig";
+import "./formikConfig";
 
 const Signup = () => {
   return (
