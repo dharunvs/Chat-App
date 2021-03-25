@@ -1,15 +1,22 @@
 import { Formik, Form } from "formik";
 import { useHistory } from "react-router-dom";
+// import { useState } from "react";
 import { validationSchema, defaultValues } from "./formikConfig";
 import { FormField } from "../FormField/FormField";
 
 const Signup = () => {
   const history = useHistory();
+
+  function signup({ email, username, password }, { setSubmitting }) {
+    console.log("Signing up: ", email, username, password);
+    console.log(setSubmitting);
+  }
+
   return (
     <div className="auth-form">
-      <h1>Sign up</h1>
+      <h1>Sign up</h1>c
       <Formik
-        onSubmit={() => console.log("Submitting")}
+        onSubmit={signup}
         validateOnMount={true}
         initialValues={defaultValues}
         validationSchema={validationSchema}
@@ -37,7 +44,7 @@ const Signup = () => {
                   history.push("login");
                 }}
               >
-                Sign in
+                Login
               </span>
             </div>
           </Form>
