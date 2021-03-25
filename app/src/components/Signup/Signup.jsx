@@ -1,5 +1,5 @@
-import { Formik } from "formik";
-import "./formikConfig";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { validationSchema, defaultValues } from "./formikConfig";
 
 const Signup = () => {
   return (
@@ -10,7 +10,15 @@ const Signup = () => {
         validateOnMount={true}
         initialValues={defaultValues}
         validationSchema={validationSchema}
-      ></Formik>
+      >
+        <Form>
+          <label>
+            Username <br />
+            <Field type="text" name="username" />
+            <ErrorMessage component="div" name="username" />
+          </label>
+        </Form>
+      </Formik>
     </div>
   );
 };

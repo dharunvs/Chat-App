@@ -1,14 +1,13 @@
 import * as yup from "yup";
 
-
-const defaultValues = {
+export const defaultValues = {
   email: "",
   username: "",
   password: "",
   verifyPassword: "",
 };
 
-const validationSchema = yup.object().shape({
+export const validationSchema = yup.object().shape({
   email: yup.string().required("Required").email("Invalid email"),
   username: yup
     .string()
