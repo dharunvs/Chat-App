@@ -15,7 +15,7 @@ const Signup = () => {
           <label>
             Username <br />
             <Field type="text" name="username" />
-            <ErrorMessage component="div" name="username" />
+            <ErrorMessage className="error" component="div" name="username" />
           </label>
         </Form>
       </Formik>
