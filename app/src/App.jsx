@@ -1,10 +1,10 @@
+import { useEffect } from "react";
+import { Switch, Route } from "react-router";
+import useAuth from "./hooks/useAuth";
+import useResolved from "./hooks/useResolved";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Chat from "./components/Chat/Chat";
-import { Switch, Route } from "react-router";
-import { useEffect } from "react";
-import useAuth from "./hooks/useAuth";
-import useResolved from "./hooks/useResolved";
 
 const App = () => {
   const authUser = useAuth();
