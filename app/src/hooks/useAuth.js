@@ -1,7 +1,7 @@
-import { fb } from "../service/firebase";
+import fb from "../service/firebase";
 import { useEffect, useState } from "react";
 
-export const authState = () => {
+export const AuthState = () => {
   const [authUser, setAuthUser] = useState();
 
   useEffect(() => {
@@ -11,8 +11,10 @@ export const authState = () => {
       } else {
         setAuthUser(null);
       }
-
-      return unsubscribe;
     });
-  });
+
+    return unsubscribe;
+  }, []);
+
+  return { authUser };
 };
