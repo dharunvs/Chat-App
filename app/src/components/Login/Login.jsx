@@ -28,7 +28,11 @@ const Login = () => {
                 <FormField label="Username" name="username" />
                 <FormField label="Password" name="password" type="password" />
 
-                <button disabled={isSubmitting || !isValid} type="submit">
+                <button
+                  className="auth-button"
+                  disabled={isSubmitting || !isValid}
+                  type="submit"
+                >
                   Login
                 </button>
 

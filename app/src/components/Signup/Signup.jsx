@@ -36,7 +36,11 @@ const Signup = () => {
                   type="password"
                 />
 
-                <button disabled={isSubmitting || !isValid} type="submit">
+                <button
+                  className="auth-button"
+                  disabled={isSubmitting || !isValid}
+                  type="submit"
+                >
                   Sign up
                 </button>
 
