@@ -1,3 +1,11 @@
+/* .auth-form-container {
+  transition: transform 500ms ease-in-out;
+}
+
+.auth-form-container:hover {
+  transform: translateY(-10px);
+} */
+
 .auth-form-container .auth-form {
   position: relative;
   width: 400px;
