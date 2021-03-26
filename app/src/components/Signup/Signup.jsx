@@ -1,11 +1,11 @@
-import { Formik, Form } from "formik";
-import { useHistory } from "react-router-dom";
 // import { useState } from "react";
-import { validationSchema, defaultValues } from "./formikConfig";
-import { FormField } from "../FormField/FormField";
+import { useHistory } from "react-router-dom";
 import "../../styles/authForm.css";
+import { Formik, Form } from "formik";
+import { validationSchema, defaultValues } from "./formikConfig";
+import FormField from "../FormField/FormField";
 
-const Signup = () => {
+function Signup() {
   const history = useHistory();
 
   function signup({ email, username, password }, { setSubmitting }) {
@@ -62,6 +62,6 @@ const Signup = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Signup;

@@ -1,10 +1,10 @@
 import { Formik, Form } from "formik";
 import { useHistory } from "react-router";
-import { FormField } from "../FormField/FormField";
+import FormField from "../FormField/FormField";
 import { defaultValues, validationSchema } from "./formikConfig";
 import "../../styles/authForm.css";
 
-const Login = () => {
+function Login() {
   const history = useHistory();
   function login({ username, password }, { setSubmitting }) {
     console.log("Logging in: ", username, password);
@@ -54,6 +54,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Login;

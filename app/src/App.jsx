@@ -6,7 +6,7 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Chat from "./components/Chat/Chat";
 
-const App = () => {
+function App() {
   const authUser = useAuth();
   const authResolved = useResolved(authUser);
 
@@ -23,6 +23,6 @@ const App = () => {
       </Switch>
     </div>
   );
-};
+}
 
 export default App;

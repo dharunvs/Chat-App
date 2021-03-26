@@ -1,11 +1,11 @@
 import "../../styles/chat.css";
 
-const Chat = () => {
+function Chat() {
   return (
     <div className="chat-container">
       <div>Chat box</div>
     </div>
   );
-};
+}
 
 export default Chat;
