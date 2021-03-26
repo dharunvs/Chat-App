@@ -16,7 +16,7 @@ const Signup = () => {
   return (
     <div className="auth-form-container">
       <div className="auth-form">
-        <span></span>
+        <span className="css-reflection"></span>
         <div className="content">
           <h1>Sign up</h1>
           <Formik
@@ -46,14 +46,14 @@ const Signup = () => {
 
                 <div className="auth-link-container">
                   Already have an account?{" "}
-                  <a
+                  <span
                     className="auth-link"
                     onClick={() => {
                       history.push("login");
                     }}
                   >
                     Login
-                  </a>
+                  </span>
                 </div>
               </Form>
             )}

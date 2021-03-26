@@ -14,7 +14,7 @@ const Login = () => {
   return (
     <div className="auth-form-container">
       <div className="auth-form">
-        <span id="css-reflection"></span>
+        <span className="css-reflection"></span>
         <div className="content">
           <h1>Log in</h1>
           <Formik
@@ -36,16 +36,16 @@ const Login = () => {
                   Login
                 </button>
 
-                <div className="auth-link-conatiner">
+                <div className="auth-link-container">
                   Don't have an account?{" "}
-                  <a
+                  <span
                     className="auth-link"
                     onClick={() => {
                       history.push("signup");
                     }}
                   >
                     Signup
-                  </a>
+                  </span>
                 </div>
               </Form>
             )}

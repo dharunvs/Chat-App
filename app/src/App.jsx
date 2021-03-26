@@ -3,14 +3,16 @@ import Signup from "./components/Signup/Signup";
 import Chat from "./components/Chat/Chat";
 import { Switch, Route } from "react-router";
 import { useEffect } from "react";
-import { AuthState } from "./hooks/useAuth";
+import useAuth from "./hooks/useAuth";
+import useResolved from "./hooks/useResolved";
 
 const App = () => {
-  const { authUser } = AuthState();
+  const authUser = useAuth();
+  const authResolved = useResolved(authUser);
 
   useEffect(() => {
-    console.log("AUTH USER :", authUser);
-  }, [authUser]);
+    console.log(authUser, authResolved);
+  }, [authUser, authResolved]);
 
   return (
     <div className="app">

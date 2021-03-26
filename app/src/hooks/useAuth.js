@@ -1,7 +1,7 @@
 import fb from "../service/firebase";
 import { useEffect, useState } from "react";
 
-export const AuthState = () => {
+function useAuth() {
   const [authUser, setAuthUser] = useState();
 
   useEffect(() => {
@@ -16,5 +16,7 @@ export const AuthState = () => {
     return unsubscribe;
   }, []);
 
-  return { authUser };
-};
+  return authUser;
+}
+
+export default useAuth;
