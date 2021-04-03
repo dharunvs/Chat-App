@@ -15,7 +15,7 @@ function Signup() {
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         if (res?.user?.uid) {
-          fetch("../../../api/createUser", {
+          fetch("/api/createUser", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

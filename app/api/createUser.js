@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const createUser = () => {
+const createUser = async (userName, userId) => {
   const { userId, userName } = req.body;
 
   axios
