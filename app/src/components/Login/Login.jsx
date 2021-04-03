@@ -13,7 +13,7 @@ function Login() {
   }
 
   return (
-    <div className="auth-form-container">
+    <div className="auth-form-container"> 
       <div className="auth-form">
         <span className="css-reflection"></span>
         <div className="content">
