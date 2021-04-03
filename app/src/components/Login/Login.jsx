@@ -6,6 +6,7 @@ import "../../styles/authForm.css";
 
 function Login() {
   const history = useHistory();
+
   function login({ username, password }, { setSubmitting }) {
     console.log("Logging in: ", username, password);
     console.log(setSubmitting);

@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 export const defaultValues = {
-  email: "",
+  email: "",    
   username: "",
   password: "",
   verifyPassword: "",
