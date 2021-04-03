@@ -15,10 +15,32 @@ function Signup() {
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
         if (res?.user?.uid) {
+          fetch("../../../api/createUser", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: {
+              userName: username,
+              userId: res.user.uid,
+            },
+          }).then(() => {
+            fb.firestore.collection("chatUsers").doc(res.user.uid).set({
+              userName: username,
+              avatar: "",
+            });
+          });
+        } else {
+          setServerError("Trouble signing up. Try again");
         }
       })
-      .catch((err) => {})
-      .finally(() => {});
+      .catch((err) => {
+        if (err.code === "auth/email-already-in-use") {
+          setServerError("Email already exists");
+        } else {
+          setServerError("Trouble signing up. Try again");
+        }
+      });
   }
 
   return (
