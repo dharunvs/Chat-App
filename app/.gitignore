@@ -24,5 +24,4 @@ yarn-error.log*
 
 .vercel
 
-.vscode
 /env.txt
