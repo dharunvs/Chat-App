@@ -20,10 +20,10 @@ function Signup() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: {
+            body: JSON.stringify({
               userName: username,
               userId: res.user.uid,
-            },
+            }),
           }).then(() => {
             fb.firestore.collection("chatUsers").doc(res.user.uid).set({
               userName: username,
