@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import "../../styles/authForm.css";
 import { Formik, Form } from "formik";
 import { validationSchema, defaultValues } from "./formikConfig";
-import FormField from "../FormField/FormField";
+import { FormField } from "../FormField/FormField";
 
 function Signup() {
   const history = useHistory();

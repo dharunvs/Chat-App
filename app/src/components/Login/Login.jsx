@@ -1,19 +1,37 @@
-import { Formik, Form } from "formik";
+import { useState } from "react";
 import { useHistory } from "react-router";
-import FormField from "../FormField/FormField";
+import fb from "../../service/firebase";
+import { Formik, Form } from "formik";
+import { FormField, ServerError } from "../FormField/FormField";
 import { defaultValues, validationSchema } from "./formikConfig";
 import "../../styles/authForm.css";
 
 function Login() {
   const history = useHistory();
 
+  const [serverError, setServerError] = useState("");
+
   function login({ username, password }, { setSubmitting }) {
-    console.log("Logging in: ", username, password);
-    console.log(setSubmitting);
+    fb.auth
+      .signInWithEmailAndPassword(username, password)
+      .then((res) => {
+        if (!res.user) {
+          setServerError("Trouble logging in.");
+        }
+      })
+      .catch((err) => {
+        if (err.code === "auth/wrong-password") {
+          setServerError("Invalid credentials");
+        } else if (err.code === "auth/user-not-found") {
+          setServerError("Email not registered");
+        } else {
+          setServerError("Something went wrong");
+        }
+      });
   }
 
   return (
-    <div className="auth-form-container"> 
+    <div className="auth-form-container">
       <div className="auth-form">
         <span className="css-reflection"></span>
         <div className="content">
@@ -51,6 +69,7 @@ function Login() {
               </Form>
             )}
           </Formik>
+          <ServerError serverError={serverError} />
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { Field, ErrorMessage } from "formik";
 import "../../styles/formField.css";
 
-function FormField({ name, label, type = "text" }) {
+export function FormField({ name, label, type = "text" }) {
   return (
     <label>
       {label}
@@ -13,4 +13,10 @@ function FormField({ name, label, type = "text" }) {
   );
 }
 
-export default FormField;
+export function ServerError({ serverError }) {
+  return (
+    <div className="error-container">
+      <div className="error">{serverError}</div>
+    </div>
+  );
+}
