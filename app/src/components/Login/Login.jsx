@@ -11,9 +11,9 @@ function Login() {
 
   const [serverError, setServerError] = useState("");
 
-  function login({ username, password }, { setSubmitting }) {
+  function login({ email, password }, { setSubmitting }) {
     fb.auth
-      .signInWithEmailAndPassword(username, password)
+      .signInWithEmailAndPassword(email, password)
       .then((res) => {
         if (!res.user) {
           setServerError("Trouble logging in.");
@@ -44,7 +44,7 @@ function Login() {
           >
             {({ isValid, isSubmitting }) => (
               <Form>
-                <FormField label="Username" name="username" />
+                <FormField label="Username" name="email" />
                 <FormField label="Password" name="password" type="password" />
 
                 <button

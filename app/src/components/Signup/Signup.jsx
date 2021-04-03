@@ -27,7 +27,7 @@ function Signup() {
           >
             {({ isValid, isSubmitting }) => (
               <Form>
-                <FormField label="Username" name="username" />
+                <FormField label="Email" name="username" />
                 <FormField label="Email" name="email" />
                 <FormField label="Password" name="password" type="password" />
                 <FormField
