@@ -27,6 +27,9 @@ function Login() {
         } else {
           setServerError("Something went wrong");
         }
+      })
+      .finally(() => {
+        setSubmitting(false);
       });
   }
 
@@ -44,7 +47,7 @@ function Login() {
           >
             {({ isValid, isSubmitting }) => (
               <Form>
-                <FormField label="Username" name="email" />
+                <FormField label="Email" name="email" />
                 <FormField label="Password" name="password" type="password" />
 
                 <button

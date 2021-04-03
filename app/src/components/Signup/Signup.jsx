@@ -1,16 +1,24 @@
-// import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import "../../styles/authForm.css";
+import { useState } from "react";
+import { useHistory } from "react-router";
+import fb from "../../service/firebase";
 import { Formik, Form } from "formik";
-import { validationSchema, defaultValues } from "./formikConfig";
-import { FormField } from "../FormField/FormField";
+import { FormField, ServerError } from "../FormField/FormField";
+import { defaultValues, validationSchema } from "./formikConfig";
+import "../../styles/authForm.css";
 
 function Signup() {
   const history = useHistory();
+  const [serverError, setServerError] = useState("");
 
   function signup({ email, username, password }, { setSubmitting }) {
-    console.log("Signing up: ", email, username, password);
-    console.log(setSubmitting);
+    fb.auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        if (res?.user?.uid) {
+        }
+      })
+      .catch((err) => {})
+      .finally(() => {});
   }
 
   return (
@@ -27,7 +35,7 @@ function Signup() {
           >
             {({ isValid, isSubmitting }) => (
               <Form>
-                <FormField label="Email" name="username" />
+                <FormField label="Username" name="username" />
                 <FormField label="Email" name="email" />
                 <FormField label="Password" name="password" type="password" />
                 <FormField
@@ -58,6 +66,7 @@ function Signup() {
               </Form>
             )}
           </Formik>
+          <ServerError serverError={serverError} />
         </div>
       </div>
     </div>
