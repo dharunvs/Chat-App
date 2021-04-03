@@ -40,6 +40,9 @@ function Signup() {
         } else {
           setServerError("Trouble signing up. Try again");
         }
+      })
+      .finally(() => {
+        setSubmitting(false);
       });
   }
 
