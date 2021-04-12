@@ -5,6 +5,7 @@ import { Formik, Form } from "formik";
 import { FormField, ServerError } from "../FormField/FormField";
 import { defaultValues, validationSchema } from "./formikConfig";
 import "../../styles/authForm.css";
+import { createUser1 } from "../../api/createUser";
 
 function Signup() {
   const history = useHistory();
@@ -24,7 +25,16 @@ function Signup() {
               userName: username,
               userId: res.user.uid,
             }),
-          }).then(() => {
+          });
+
+          // () => {
+          //   fb.firestore.collection("chatUsers").doc(res.user.uid).set({
+          //     userName: username,
+          //     avatar: "",
+          //   });
+          // };
+
+          createUser1(username, res.user.uid).then(() => {
             fb.firestore.collection("chatUsers").doc(res.user.uid).set({
               userName: username,
               avatar: "",
